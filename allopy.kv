@@ -16,9 +16,14 @@ ScreenManagement:
 		TextInput:
 			id:country_info
 			on_focus:app.root.current='country_option'
-			
 		TextInput:
 			id:phone_no
+		Label:
+			markup: True
+			text:"By signing up, you agree to the [b]Terms and Conditions[/b] & [b]Privacy Policy[/b].\nYou also agree to letting Allo send your contacts and location to Google periodically. People with your number can connect with you across Google services."
+		Button:
+			text:'NEXT >'
+
 
 <CountryOption>:
 	name:"country_option"
