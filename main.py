@@ -14,6 +14,10 @@ class FirstScreen(Screen):
 	pass
 
 class CountryOption(Screen):
+
+	pass
+
+class VerificationCode(Screen):
 	pass
 
 class ScreenManagement(ScreenManager):
