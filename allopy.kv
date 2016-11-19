@@ -12,6 +12,8 @@ ScreenManagement:
 	
 	BoxLayout:
 		id:b1
+		padding:100.100
+		spacing:20
 		orientation:'vertical'
 		Label:
 			font_size:40
@@ -36,8 +38,10 @@ ScreenManagement:
 	BoxLayout:
 		orientation:'vertical'
 		BoxLayout:
+			padding:100,100
+			spacing:30
 			Button:
-				font_size:20
+				font_size:50
 				text:'<--'
 				on_release:app.root.current='first_screen'
 			Label:
@@ -52,6 +56,8 @@ ScreenManagement:
 	name:'verify_no'
 	BoxLayout:
 		orientation: 'vertical'
+		padding:100,100
+		spacing:50
 		Label:
 			markup:True
 			text:'[b]Enter your code[/b]'
