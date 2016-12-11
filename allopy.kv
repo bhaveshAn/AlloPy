@@ -1,74 +1,85 @@
 #: import FadeTransition kivy.uix.screenmanager.FadeTransition
 
+
+
+
+<ImageButton@ButtonBehavior+Image>:
+
 ScreenManagement:
 	transition: FadeTransition()
-	FirstScreen:
-	CountryOption:
-	VerificationCode:
-
-
-<FirstScreen>:
-	name:'first_screen'
+	Screen:
+		name:'first_screen'
 	
-	BoxLayout:
-		id:b1
-		padding:100.100
-		spacing:20
-		orientation:'vertical'
-		Label:
-			font_size:40
-			text:"Verify your number\nYou'll get a code via SMS. Carrier rates may apply."
-		TextInput:
-			font_size:25
-			id:country_info
-			on_focus:app.root.current='country_option'
-		TextInput:
-			font_size:25
-			id:phone_no
-		Label:
-			markup: True
-			text:"By signing up, you agree to the [b]Terms and Conditions[/b] & [b]Privacy Policy[/b].\nYou also agree to letting Allo send your contacts and location to Google periodically. People with your number can connect with you across Google services."
-		Button:
-			text:'NEXT >'
-			on_release:app.root.current='verify_no'
-
-
-<CountryOption>:
-	name:"country_option"
-	BoxLayout:
-		orientation:'vertical'
 		BoxLayout:
-			padding:100,100
-			spacing:30
-			Button:
-				font_size:50
-				text:'<--'
-				on_release:app.root.current='first_screen'
+			id:b1
+			padding:10,10
+			spacing:20
+			orientation:'vertical'
 			Label:
-				text:"Choose your country"
-		ListView:
+				font_size:40
+				text:"Verify your number\nYou'll get a code via SMS.\nCarrier rates may apply."
+			TextInput:
+				font_size:25
+				id:country_info
+				on_focus:app.root.current='country_option'
+			TextInput:
+				font_size:25
+				id:phone_no
+			Label:
+				markup: True
+				text:"By signing up, you agree to the [b]Terms and Conditions[/b] & [b]Privacy Policy[/b].\nYou also agree to letting Allo send your contacts and location to Google periodically. People with your number can connect with you across Google services."
+			Button:
+				text:'NEXT >'
+				on_release:app.root.current='verify_no'
+
+	Screen:
+		name:"country_option"
+		BoxLayout:
+			orientation:'vertical'
+			BoxLayout:
+				padding:100,100
+				spacing:30
+				Button:
+					font_size:50
+					text:'<--'
+					on_release:app.root.current='first_screen'
+				Label:
+					text:"Choose your country"
+			ListView:
+				Label:
+					markup:True
+					text:'[b]Country_name[/b]  (Country_code)'
+
+	Screen:
+		name:'verify_no'
+		BoxLayout:
+			orientation: 'vertical'
+			padding:100,100
+			spacing:50
 			Label:
 				markup:True
-				text:'[b]Country_name[/b]  (Country_code)'
-
-
-<VerificationCode>:
-	name:'verify_no'
-	BoxLayout:
-		orientation: 'vertical'
-		padding:100,100
-		spacing:50
-		Label:
-			markup:True
-			text:'[b]Enter your code[/b]'
-		Label:
-			text:'Enter the verification code sent to 0'
-		TextInput:
-			font_size:25
-		Label:
-			text:"Didn't receive a code?\n[b]GET A NEW ONE[/b] or [b]CALL ME[/b]"
-
-
-
-
-
+				text:'[b]Enter your code[/b]'
+			Label:
+				text:'Enter the verification code sent to 0'
+			TextInput:
+				font_size:25
+			Label:
+				text:"Didn't receive a code?\n[b]GET A NEW ONE[/b] or [b]CALL ME[/b]"
+			Button:
+				text:'NEXT >'
+				on_release:app.root.current='dp'
+	Screen:
+		name:'dp'
+		BoxLayout:
+			orientation:'vertical'
+			Label:
+				text:'Snap a selfie for your\nprofile'	
+				size_hint:None,0.15
+			Camera:
+			BoxLayout:
+				orientation:'horizontal'
+				FileChooser:
+				ImageButton:
+				Button:
+					text:'SKIP >'	
+					on_release:app.root.current=''		
